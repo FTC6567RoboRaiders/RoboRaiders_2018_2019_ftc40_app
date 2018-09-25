@@ -1,4 +1,4 @@
-package RoboRaiders.reference;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -11,7 +11,6 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp
-@Disabled
 
 public class MecanumTeleOp extends OpMode {
 
