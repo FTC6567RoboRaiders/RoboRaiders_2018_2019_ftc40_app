@@ -1,4 +1,4 @@
-package RoboRaiders.examples;
+package org.firstinspires.ftc.teamcode;
 
 import org.corningrobotics.enderbots.endercv.OpenCVPipeline;
 import org.opencv.core.Core;
@@ -44,7 +44,7 @@ import java.util.List;
  * robotics OpenCV applications.
  */
 
-public class ExampleBlueVision extends OpenCVPipeline {
+public class NickBlueVision extends OpenCVPipeline {
     private boolean showContours = true;
     // To keep it such that we don't have to instantiate a new Mat every call to processFrame,
     // we declare the Mats up here and reuse them. This is easier on the garbage collector.
@@ -69,7 +69,7 @@ public class ExampleBlueVision extends OpenCVPipeline {
         // Then, we threshold our hsv image so that we get a black/white binary image where white
         // is the blues listed in the specified range of values
         // you can use a program like WPILib GRIP to find these values, or just play around.
-        Core.inRange(hsv, new Scalar(15, 125, 180), new Scalar(20, 230, 255), thresholded);
+        Core.inRange(hsv, new Scalar(31, 192, 229), new Scalar(68, 145, 225), thresholded);
 
         // we blur the thresholded image to remove noise
         // there are other types of blur like box blur or gaussian which can be explored.
