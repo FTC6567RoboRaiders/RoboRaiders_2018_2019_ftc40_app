@@ -75,6 +75,7 @@ public class ExampleBlueVision extends OpenCVPipeline {
         // there are other types of blur like box blur or gaussian which can be explored.
         Imgproc.blur(thresholded, thresholded, new Size(3, 3));
 
+
         // create a list to hold our contours.
         // Conceptually, there is going to be a single contour for the outline of every blue object
         // that we can find. We can iterate over them to find objects of interest.
