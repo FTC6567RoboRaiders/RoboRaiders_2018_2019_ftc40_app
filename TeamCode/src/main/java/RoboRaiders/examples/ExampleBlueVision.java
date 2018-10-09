@@ -1,5 +1,7 @@
 package RoboRaiders.examples;
 
+import android.provider.ContactsContract;
+
 import org.corningrobotics.enderbots.endercv.OpenCVPipeline;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -89,6 +91,8 @@ public class ExampleBlueVision extends OpenCVPipeline {
             // they are highlighted in green.
             Imgproc.drawContours(rgba, contours, -1, new Scalar(0, 255, 0), 2, 8);
         }
+        // double area = Imgproc.contourArea(contours);
+
 
         return rgba; // display the image seen by the camera
     }
