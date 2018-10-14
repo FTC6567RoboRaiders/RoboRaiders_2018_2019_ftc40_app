@@ -36,7 +36,7 @@ public class ProtoDriveBot extends OpMode {
     @Override
     public void start() {
 
-     //   robot.initializeServosTeleOp();
+        //   robot.initializeServosTeleOp();
     }
 
     @Override
@@ -61,12 +61,20 @@ public class ProtoDriveBot extends OpMode {
         RightFront = (float) scaleInput(RightFront);
 
         robot.setDriveMotorPower(LeftFront * 0.95,
-                                RightFront * 0.95,
-                                 LeftBack * 0.95,
-                                RightBack * 0.95);
+                RightFront * 0.95,
+                LeftBack * 0.95,
+                RightBack * 0.95);
 
+        if (gamepad1.dpad_right) {
+            robot.servoRight.setPosition(1.0);
+            robot.servoLeft.setPosition(-1.0);
+        }
+         else if (gamepad1.dpad_left) {
+            robot.servoRight.setPosition(-1.0);
+            robot.servoLeft.setPosition(1.0);
+        }
 
-           }
+    }
 
     @Override
     public void stop() {
