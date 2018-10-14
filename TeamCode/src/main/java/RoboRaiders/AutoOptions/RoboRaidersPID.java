@@ -7,7 +7,7 @@ public class RoboRaidersPID {
 
 
  public void pidWithCounts (){
-     While(encoder") {
+     While(encoder) {
              error = ("Target Value") - ("Sensor Value");
      integral = integral + error;
 
@@ -37,4 +37,4 @@ public class RoboRaidersPID {
      power = Kp*error + Ki*integral + Kd*dirvative;
  }
 }
-}
+}}
