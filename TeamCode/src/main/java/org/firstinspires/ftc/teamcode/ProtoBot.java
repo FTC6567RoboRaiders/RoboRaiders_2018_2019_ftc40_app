@@ -27,6 +27,7 @@ public class ProtoBot {
     public DcMotor motorlift = null;
     public Servo servoRight = null;
     public Servo servoLeft = null;
+    public Servo servoGripper = null;
     public BNO055IMU imu;
 
     /* Local OpMode Members */
@@ -68,6 +69,7 @@ public class ProtoBot {
         // Define and initalize servos
         servoRight = hwMap.get(Servo.class, "servoRight");
         servoLeft = hwMap.get(Servo.class, "servoLeft");
+        servoGripper = hwMap.get(Servo.class, "servoGripper");
 
         // Defines the directions the motors will spin
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);

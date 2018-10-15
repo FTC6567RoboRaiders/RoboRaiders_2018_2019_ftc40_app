@@ -87,6 +87,14 @@ public class ProtoDriveBot extends OpMode {
         lift = (float) scaleInput(lift);
         robot.setliftMotorPower(lift * 0.90);
 
+        if (gamepad1.dpad_up) {
+            robot.servoGripper.setPosition(-1.0);
+            }
+        else if (gamepad1.dpad_down) {
+            robot.servoGripper.setPosition(1.0);
+        }
+
+
     }
 
     @Override
