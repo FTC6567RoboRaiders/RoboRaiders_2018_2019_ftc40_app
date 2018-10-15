@@ -21,6 +21,7 @@ public class ProtoDriveBot extends OpMode {
     float RightBack;  // Power for right back motor
     float LeftFront;  // Power for left front motor
     float RightFront; // Power for right front motor
+    float lift;  // Power for the glyph lift motor
     float maxpwr;     // Maximum power of the four motors
     double powerFactor = 1;
 
@@ -78,6 +79,13 @@ public class ProtoDriveBot extends OpMode {
             robot.servoLeft.setPosition(0);
 
         }
+
+
+        // "Set Glyph Lift Motor Power" functionality
+        lift = -gamepad2.right_stick_y;
+        lift = Range.clip(lift, -1, 1);
+        lift = (float) scaleInput(lift);
+        robot.setliftMotorPower(lift * 0.90);
 
     }
 
