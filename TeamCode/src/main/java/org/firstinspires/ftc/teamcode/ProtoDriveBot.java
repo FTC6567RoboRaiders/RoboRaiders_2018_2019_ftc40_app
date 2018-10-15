@@ -73,6 +73,11 @@ public class ProtoDriveBot extends OpMode {
             robot.servoRight.setPosition(-1.0);
             robot.servoLeft.setPosition(1.0);
         }
+        else {
+            robot.servoRight.setPosition(0);
+            robot.servoLeft.setPosition(0);
+
+        }
 
     }
 
