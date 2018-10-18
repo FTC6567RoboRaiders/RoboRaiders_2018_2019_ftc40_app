@@ -91,9 +91,26 @@ public class ExampleBlueVision extends OpenCVPipeline {
             // they are highlighted in green.
             Imgproc.drawContours(rgba, contours, -1, new Scalar(0, 255, 0), 2, 8);
         }
-        // // //double area = Imgproc.contourArea(contours);
 
+
+        double maxArea = 0.0;
+        List<MatOfPoint> MaxContour = new ArrayList<>();
+        MatOfPoint currentMaxContour = new MatOfPoint();
+
+        for (MatOfPoint myPoints : contours) {
+            double area = Imgproc.contourArea(myPoints);
+                if (area >  maxArea) {
+                    maxArea = area;
+                    currentMaxContour = myPoints;
+                }
+        }
+
+        MaxContour.add(currentMaxContour);
+
+        Imgproc.drawContours(rgba, MaxContour, -1, new Scalar(0, 0, 255), 2, 8);
 
         return rgba; // display the image seen by the camera
     }
+
+
 }
