@@ -102,14 +102,16 @@ public class ExampleBlueVision extends OpenCVPipeline {
                 if (area >  maxArea) {
                     maxArea = area;
                     currentMaxContour = myPoints;
+                    //sorts the contour areas and assigns the largest one to currentMaxContour
                 }
         }
 
-        MaxContour.add(currentMaxContour);
+        MaxContour.add(currentMaxContour); // gets currentMaxContour into the correct type
 
-        Imgproc.drawContours(rgba, MaxContour, -1, new Scalar(0, 0, 255), 2, 8);
+        Imgproc.drawContours(rgba, MaxContour, -1, new Scalar(0, 0, 255), 2, 8); // this outlines the largest contour object in blue
 
         return rgba; // display the image seen by the camera
+
     }
 
 
