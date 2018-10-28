@@ -4,6 +4,11 @@ public class RoboRaidersPID {
    public double Kp = 0;
     public double Ki = 0;
     public double Kd = 0;
+    public double error;
+    public double integral;
+    public double derivative;
+    public double previous_error;
+    public double power;
 
 
  public void pidWithCounts (){
@@ -19,7 +24,7 @@ public class RoboRaidersPID {
      }
      derivative = error - previous_error;
      previous_error = error;
-     power = Kp*error + Ki*integral + Kd*dirvative;
+     power = Kp*error + Ki*integral + Kd*derivative;
     }
  public void pidWithDistance () {
      While(encoder) {
@@ -34,7 +39,7 @@ public class RoboRaidersPID {
      }
      derivative = error - previous_error;
      previous_error = error;
-     power = Kp*error + Ki*integral + Kd*dirvative;
+     power = Kp*error + Ki*integral + Kd*derivative;
  }
 }
 }
