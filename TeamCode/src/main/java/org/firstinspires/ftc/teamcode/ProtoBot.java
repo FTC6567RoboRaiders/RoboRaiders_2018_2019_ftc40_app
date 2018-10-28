@@ -31,7 +31,7 @@ public class ProtoBot {
     public BNO055IMU imu;
 
     /* Local OpMode Members */
-    public HardwareMap hwMap =  null;
+    public HardwareMap hwMap = null;
 
     /* Public Variables */
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -42,10 +42,10 @@ public class ProtoBot {
     public float iza_newHeading;
     public Orientation iza_angles;
 
-    /** Constructor for Robot class, current does nothing but is needed since every class needs a constructor
-     *
+    /**
+     * Constructor for Robot class, current does nothing but is needed since every class needs a constructor
      */
-    public ProtoBot(){
+    public ProtoBot() {
 
     }
 
@@ -93,7 +93,7 @@ public class ProtoBot {
         motorBackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorlift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        
+
         // Define and initialize sensors
         imu = hwMap.get(BNO055IMU.class, "imu");
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
@@ -105,12 +105,12 @@ public class ProtoBot {
     /**
      * This method will set the power for the drive motors
      *
-     * @param leftFront power setting for the left front motor
+     * @param leftFront  power setting for the left front motor
      * @param rightFront power setting for the right front motor
-     * @param leftBack power setting for the left back motor
-     * @param rightBack power setting for the right back motor
+     * @param leftBack   power setting for the left back motor
+     * @param rightBack  power setting for the right back motor
      */
-    public void setDriveMotorPower(double leftFront, double rightFront, double leftBack, double rightBack){
+    public void setDriveMotorPower(double leftFront, double rightFront, double leftBack, double rightBack) {
 
         motorFrontLeft.setPower(leftFront);
         motorFrontRight.setPower(rightFront);
@@ -122,6 +122,7 @@ public class ProtoBot {
 
         motorlift.setPower(lift);
     }
+
     public double calculateCOUNTS(double distance) {
 
         double COUNTS;
@@ -136,7 +137,39 @@ public class ProtoBot {
         return COUNTS;
 
 
+    }
+    public int getSortedEncoderCount() {
 
+        int[] encoderArray = new int[4];
+
+        encoderArray[0] = Math.abs(motorFrontLeft.getCurrentPosition());
+        encoderArray[1] = Math.abs(motorFrontRight.getCurrentPosition());
+        encoderArray[2] = Math.abs(motorBackLeft.getCurrentPosition());
+        encoderArray[3] = Math.abs(motorBackRight.getCurrentPosition());
+
+        int I;
+        int J;
+        int Temp;
+
+        for (I = 0; I < 3; I++) {
+
+            for (J = I + 1; J < 4; J++) {
+
+                if (encoderArray[I] < encoderArray[J]) {
+
+                }
+                else {
+
+                    Temp = encoderArray[I];
+                    encoderArray[I] = encoderArray[J];
+                    encoderArray[J] = Temp;
+                }
+            }
+        }
+        int averageCount = (encoderArray[1] + encoderArray[2]) / 2;
+
+        return averageCount;
+    }
 }
 
 
