@@ -114,7 +114,7 @@ public class ExampleBlueVision extends OpenCVPipeline {
         Rect boundingRect = Imgproc.boundingRect(currentMaxContour);
 
 
-        Imgproc.rectangle(currentMaxContour, boundingRect.tl() ,boundingRect.br(), new Scalar(255,0,0),2, 8, 0);
+        Imgproc.rectangle(rgba, boundingRect.tl() ,boundingRect.br(), new Scalar(255,0,0),2, 8, 0);
 
         return rgba; // display the image seen by the camera
 
