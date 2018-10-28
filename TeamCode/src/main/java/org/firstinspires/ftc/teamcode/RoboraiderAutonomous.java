@@ -13,7 +13,7 @@ import RoboRaiders.AutoOptions.RoboRaidersPID;
    public double motor_power;
 
    public void EncoderDrivePID () {
-       while (opModeIsActive() && robot.calculateCOUNTS(0) > Target) {
+       while (opModeIsActive() && robot.calculateCOUNTS() > Target) {
            motor_power = drivePID.pidWithCounts(1000,0);
            robot.setDriveMotorPower(motor_power, motor_power, motor_power, motor_power);
        }
