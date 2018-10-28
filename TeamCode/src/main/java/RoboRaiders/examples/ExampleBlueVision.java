@@ -6,12 +6,15 @@ import org.corningrobotics.enderbots.endercv.OpenCVPipeline;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by guinea on 10/5/17.
@@ -92,27 +95,29 @@ public class ExampleBlueVision extends OpenCVPipeline {
             Imgproc.drawContours(rgba, contours, -1, new Scalar(0, 255, 0), 2, 8);
         }
 
-
         double maxArea = 0.0;
         List<MatOfPoint> MaxContour = new ArrayList<>();
         MatOfPoint currentMaxContour = new MatOfPoint();
 
         for (MatOfPoint myPoints : contours) {
             double area = Imgproc.contourArea(myPoints);
-                if (area >  maxArea) {
-                    maxArea = area;
-                    currentMaxContour = myPoints;
-                    //sorts the contour areas and assigns the largest one to currentMaxContour
-                }
+            if (area >  maxArea) {
+                maxArea = area;
+                currentMaxContour = myPoints;
+                //sorts the contour areas and assigns the largest one to currentMaxContour
+            }
         }
 
         MaxContour.add(currentMaxContour); // gets currentMaxContour into the correct type
 
-        Imgproc.drawContours(rgba, MaxContour, -1, new Scalar(0, 0, 255), 2, 8); // this outlines the largest contour object in blue
+
+        Rect boundingRect = Imgproc.boundingRect(currentMaxContour);
+
+
+        Imgproc.rectangle(currentMaxContour, boundingRect.tl() ,boundingRect.br(), new Scalar(255,0,0),2, 8, 0);
 
         return rgba; // display the image seen by the camera
 
     }
-
-
+    
 }

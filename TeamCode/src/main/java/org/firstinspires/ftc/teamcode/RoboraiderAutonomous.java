@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import RoboRaiders.AutoOptions.RoboRaidersPID;
 
-@Autonomous public abstract class RoboraiderAutonomous extends LinearOpMode {
-
+public abstract class RoboraiderAutonomous extends LinearOpMode {
+/*
    ProtoBot robot = new ProtoBot();
    RoboRaidersPID drivePID = new RoboRaidersPID();
 
@@ -23,5 +23,5 @@ import RoboRaiders.AutoOptions.RoboRaidersPID;
             motor_power = drivePID.pidWithDistance(0,1000);
             robot.setDriveMotorPower(motor_power, motor_power, motor_power, motor_power);
 
-
+*/
 }
