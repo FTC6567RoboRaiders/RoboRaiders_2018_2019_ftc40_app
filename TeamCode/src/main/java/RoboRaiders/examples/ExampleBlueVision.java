@@ -110,9 +110,7 @@ public class ExampleBlueVision extends OpenCVPipeline {
 
         MaxContour.add(currentMaxContour); // gets currentMaxContour into the correct type
 
-
         Rect boundingRect = Imgproc.boundingRect(currentMaxContour);
-
 
         Imgproc.rectangle(rgba, boundingRect.tl() ,boundingRect.br(), new Scalar(255,0,0),2, 8, 0);
 
