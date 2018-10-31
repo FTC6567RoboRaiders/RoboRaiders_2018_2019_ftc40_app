@@ -22,8 +22,8 @@ import RoboRaiders.AutoOptions.RoboRaidersPID;
     }
 
     public void DistanceDrivePID() {
-        while (opModeIsActive() && sensorDistance > Target) {
-            motor_power = drivePID.pidWithDistance(0, 1000);
+        while (opModeIsActive() && robot.getSensorDistance() > Target) {
+            motor_power = drivePID.pidWithDistance(robot.getSensorDistance(), 1000);
             robot.setDriveMotorPower(motor_power, motor_power, motor_power, motor_power);
 
 

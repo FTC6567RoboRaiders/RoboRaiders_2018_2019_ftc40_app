@@ -94,13 +94,14 @@ public class ProtoBot {
         motorlift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
+
         // Define and initialize sensors
         imu = hwMap.get(BNO055IMU.class, "imu");
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         parameters.mode = BNO055IMU.SensorMode.IMU;
         imu.initialize(parameters);
     }
-
+        public ModernRoboticsI2cRangeSensor mrDistance;
 
     /**
      * This method will set the power for the drive motors
@@ -169,6 +170,11 @@ public class ProtoBot {
         int averageCount = (encoderArray[1] + encoderArray[2]) / 2;
 
         return averageCount;
+    }
+    public double getSensorDistance() {
+
+        return mrDistance.getDistance(DistanceUnit.INCH);
+
     }
 }
 
