@@ -175,6 +175,28 @@ public class ProtoBot {
         return mrDistance.getDistance(DistanceUnit.INCH);
 
     }
+    /**
+     * This method will set the mode of all of the motors to run using encoder
+     */
+    public void runWithEncoders() {
+
+        motorFrontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorFrontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorBackLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorBackRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    /**
+     * This method will set the mode of all of the drive train motors to run without encoder
+     */
+    public void runWithoutEncoders() {
+
+        motorFrontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motorFrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motorBackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motorBackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    }
+
 }
 
 
