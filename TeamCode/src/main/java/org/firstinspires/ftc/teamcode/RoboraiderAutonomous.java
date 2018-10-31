@@ -13,23 +13,30 @@ public abstract class RoboraiderAutonomous extends LinearOpMode {
     RoboRaidersPID drivePID = new RoboRaidersPID();
 
     public double motor_power;
-    private double Target;
+    public double Target = robot.calculateCOUNTS(11);
 
 
 
 
     public void EncoderDrivePID() {
         while (opModeIsActive() && robot.getSortedEncoderCount() > Target) {
-            motor_power = drivePID.pidWithCounts(1000, robot.getSortedEncoderCount());
+                motor_power = drivePID.pidWithCounts(Target, robot.getSortedEncoderCount());
             robot.setDriveMotorPower(motor_power, motor_power, motor_power, motor_power);
+
+            telemetry.addData("Encoder Count", robot.getSortedEncoderCount());
+            telemetry.addData("Target Count", Target);
+            telemetry.update();
         }
     }
 
     public void DistanceDrivePID() {
         while (opModeIsActive() && robot.getSensorDistance() > Target) {
-            motor_power = drivePID.pidWithDistance(robot.getSensorDistance(), 1000);
+            motor_power = drivePID.pidWithDistance(robot.getSensorDistance(), Target);
             robot.setDriveMotorPower(motor_power, motor_power, motor_power, motor_power);
 
+            telemetry.addData("Distance Sensor", robot.getSortedEncoderCount());
+            telemetry.addData("Target Distance", Target);
+            telemetry.update();
 
         }
     }
