@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @Autonomous
 
-public abstract class ProtoAutonomous extends RoboraiderAutonomous {
+public class ProtoAutonomous extends RoboraiderAutonomous {
     ProtoBot robot = new ProtoBot();
 
     @Override
