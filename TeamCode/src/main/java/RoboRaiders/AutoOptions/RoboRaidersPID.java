@@ -37,6 +37,7 @@ public class RoboRaidersPID {
         previous_error = error;
         power = Kp * error + Ki * integral + Kd * derivative;
 
+        previous_time = System.currentTimeMillis();
         return power;
     }
 
