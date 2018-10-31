@@ -66,33 +66,10 @@ public class ProtoDriveBot extends OpMode {
                 LeftBack * 0.95,
                 RightBack * 0.95);
 
-        if (gamepad1.dpad_right) {
-            robot.servoRight.setPosition(1.0);
-            robot.servoLeft.setPosition(-1.0);
-        }
-         else if (gamepad1.dpad_left) {
-            robot.servoRight.setPosition(-1.0);
-            robot.servoLeft.setPosition(1.0);
-        }
-        else {
-            robot.servoRight.setPosition(0);
-            robot.servoLeft.setPosition(0);
-
-        }
 
 
-        // "Set Glyph Lift Motor Power" functionality
-        lift = -gamepad2.right_stick_y;
-        lift = Range.clip(lift, -1, 1);
-        lift = (float) scaleInput(lift);
-        robot.setliftMotorPower(lift * 0.90);
 
-        if (gamepad1.dpad_up) {
-            robot.servoGripper.setPosition(-1.0);
-            }
-        else if (gamepad1.dpad_down) {
-            robot.servoGripper.setPosition(1.0);
-        }
+
 
 
     }

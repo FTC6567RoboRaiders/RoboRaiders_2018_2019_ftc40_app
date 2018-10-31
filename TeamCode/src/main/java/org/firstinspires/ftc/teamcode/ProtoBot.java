@@ -24,10 +24,6 @@ public class ProtoBot {
     public DcMotor motorFrontRight = null;
     public DcMotor motorBackLeft = null;
     public DcMotor motorBackRight = null;
-    public DcMotor motorlift = null;
-    public Servo servoRight = null;
-    public Servo servoLeft = null;
-    public Servo servoGripper = null;
     public BNO055IMU imu;
 
     /* Local OpMode Members */
@@ -64,26 +60,18 @@ public class ProtoBot {
         motorFrontRight = hwMap.get(DcMotor.class, "rightMotorFront");
         motorBackLeft = hwMap.get(DcMotor.class, "leftMotorBack");
         motorBackRight = hwMap.get(DcMotor.class, "rightMotorBack");
-        motorlift = hwMap.get(DcMotor.class, "glyph_Lift");
-
-        // Define and initalize servos
-        servoRight = hwMap.get(Servo.class, "servoRight");
-        servoLeft = hwMap.get(Servo.class, "servoLeft");
-        servoGripper = hwMap.get(Servo.class, "servoGripper");
 
         // Defines the directions the motors will spin
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
         motorFrontRight.setDirection(DcMotor.Direction.FORWARD);
         motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
         motorBackRight.setDirection(DcMotor.Direction.FORWARD);
-        motorlift.setDirection(DcMotor.Direction.REVERSE);
 
         // Set all motors to zero power
         motorFrontRight.setPower(0);
         motorFrontLeft.setPower(0);
         motorBackRight.setPower(0);
         motorBackLeft.setPower(0);
-        motorlift.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODER if encoders are installed, and we wouldn't use encoders for teleop, even if we
@@ -91,7 +79,7 @@ public class ProtoBot {
         motorFrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorBackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorBackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        motorlift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
 
 
         // Define and initialize sensors
@@ -118,10 +106,6 @@ public class ProtoBot {
         motorBackRight.setPower(rightBack);
     }
 
-    public void setliftMotorPower(double lift) {
-
-        motorlift.setPower(lift);
-    }
 
     public double calculateCOUNTS(double distance) {
 
