@@ -94,7 +94,6 @@ public class ProtoBot {
         motorlift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
-
         // Define and initialize sensors
         imu = hwMap.get(BNO055IMU.class, "imu");
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;

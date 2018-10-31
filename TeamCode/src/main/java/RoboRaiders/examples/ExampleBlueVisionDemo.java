@@ -6,8 +6,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.corningrobotics.enderbots.endercv.CameraViewDisplay;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -71,7 +73,9 @@ public class ExampleBlueVisionDemo extends OpMode {
             Rect boundingRect = Imgproc.boundingRect(contours.get(i));
             telemetry.addData("contour" + Integer.toString(i),
                     String.format(Locale.getDefault(), "(%d, %d)", (boundingRect.x + boundingRect.width) / 2, (boundingRect.y + boundingRect.height) / 2));
+
         }
+
     }
 
     public void stop() {
