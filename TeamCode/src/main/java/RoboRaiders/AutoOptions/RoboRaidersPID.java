@@ -3,9 +3,9 @@ package RoboRaiders.AutoOptions;
 import org.firstinspires.ftc.teamcode.ProtoBot;
 
 public class RoboRaidersPID {
-    public double Kp = 0;
-    public double Ki = 0;
-    public double Kd = 0;
+    public double Kp = 0.003;
+    public double Ki = 0.0;
+    public double Kd = 0.0;
     public double error;
     public double integral;
     public double derivative;

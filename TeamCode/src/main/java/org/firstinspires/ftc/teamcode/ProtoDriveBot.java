@@ -21,7 +21,6 @@ public class ProtoDriveBot extends OpMode {
     float RightBack;  // Power for right back motor
     float LeftFront;  // Power for left front motor
     float RightFront; // Power for right front motor
-    float lift;  // Power for the glyph lift motor
     float maxpwr;     // Maximum power of the four motors
     double powerFactor = 1;
 
