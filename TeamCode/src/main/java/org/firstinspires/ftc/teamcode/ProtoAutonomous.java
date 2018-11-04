@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 @Autonomous
 
 public class ProtoAutonomous extends RoboraiderAutonomous {
-    ProtoBot robot = new ProtoBot();
+
 
     @Override
     public void runOpMode() throws InterruptedException {
