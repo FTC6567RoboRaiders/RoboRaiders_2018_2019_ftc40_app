@@ -180,6 +180,26 @@ public class ProtoBot {
         motorBackLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorBackRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
+    public void resetEncoders() {
+
+        motorFrontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorFrontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorBackLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorBackRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    }
+    public float getHeading() {
+
+        float heading;
+
+        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES); //this sets up the how we want the IMU to report data
+        heading = Math.abs(angles.firstAngle); //heading is equal to the absolute value of the first angle
+
+        return heading;
+    }
+    public void resetIMU() {
+
+        imu.initialize(parameters);
+    }
 
 }
 
