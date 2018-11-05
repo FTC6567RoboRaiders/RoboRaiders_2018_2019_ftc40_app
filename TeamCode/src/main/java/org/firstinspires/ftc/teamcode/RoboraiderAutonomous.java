@@ -106,6 +106,7 @@ public abstract class RoboraiderAutonomous extends LinearOpMode {
 
 
         else if (robot.sensorTouch.isPressed()) {
+
             robot.setLiftMotorPower(0);
 
             robot.liftClaw.setPosition(robot.liftClawOpen);
