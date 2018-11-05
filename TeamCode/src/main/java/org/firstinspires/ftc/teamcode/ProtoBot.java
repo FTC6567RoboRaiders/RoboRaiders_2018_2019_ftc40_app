@@ -28,7 +28,7 @@ public class ProtoBot {
     public DcMotor motorBackRight = null;
     public DcMotor motorLift = null;
     public BNO055IMU imu;
-    public TouchSensor sensorTouch = null;
+    public TouchSensor sensorTouch;
     public Servo liftClaw = null;
 
     /* Local OpMode Members */
