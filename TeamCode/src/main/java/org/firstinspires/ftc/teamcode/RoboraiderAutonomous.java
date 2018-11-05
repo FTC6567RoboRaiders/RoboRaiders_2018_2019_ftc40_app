@@ -99,17 +99,17 @@ public abstract class RoboraiderAutonomous extends LinearOpMode {
 
     public void DeployRobot(ProtoBot robot) throws InterruptedException {
 
-       /* if (!robot.sensorTouch.isPressed()) {
+        if (!robot.sensorTouch.isPressed()) {
             robot.setLiftMotorPower(-0.95);
-            //robot.robotDown = true;
-        }*/
 
-/*
-        if (robot.robotDown = true) {
+        }
+
+
+        else if (robot.sensorTouch.isPressed()) {
             robot.setLiftMotorPower(0);
 
             robot.liftClaw.setPosition(robot.liftClawOpen);
-        }*/
+        }
         }
 
   /*  public void DistanceDrivePID() {
